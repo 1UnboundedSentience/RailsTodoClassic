@@ -1,7 +1,14 @@
 <h1>Lists#index</h1>
 <p>Find me in app/views/lists/index.html.erb</p>
 
-
+Here are your lists:
+<% @lists.each do |list| %>
+  <tr>
+  <td><%= list.name %></td>
+  <td><%= link_to 'Show', list_path(list) %></td>
+  <td><%= link_to 'Edit', edit_list_path(list) %></td>
+</tr>
+<% end %>
 
 <%= form_for :list do |f| %>
   <p>

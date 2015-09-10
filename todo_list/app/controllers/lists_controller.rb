@@ -5,6 +5,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    @task = @list.tasks
     if @list.save
       redirect_to list_url(@list)
     else
@@ -23,6 +24,7 @@ class ListsController < ApplicationController
   end
 
   private
+
   def list_params
     params.require(:list).permit(:name)
   end
